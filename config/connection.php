@@ -3,7 +3,7 @@
 	$host = "localhost";
 	$user = "root";
 	$pass = "";
-	$db   = "ahp-tiara";
+	$db   = "db_spk_ahp";
 	
 	$con = mysqli_connect($host, $user, $pass, $db);
 

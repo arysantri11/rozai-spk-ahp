@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2019 at 02:31 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 5.6.33
+-- Waktu pembuatan: 10 Nov 2023 pada 03.52
+-- Versi server: 10.4.27-MariaDB
+-- Versi PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ahp-tiara`
+-- Database: `db_spk_ahp`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `alternatif`
+-- Struktur dari tabel `alternatif`
 --
 
 CREATE TABLE `alternatif` (
@@ -33,10 +32,10 @@ CREATE TABLE `alternatif` (
   `NIP` varchar(20) NOT NULL,
   `periode` varchar(30) NOT NULL,
   `lihat` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `alternatif`
+-- Dumping data untuk tabel `alternatif`
 --
 
 INSERT INTO `alternatif` (`id_alternatif`, `NIP`, `periode`, `lihat`) VALUES
@@ -48,7 +47,7 @@ INSERT INTO `alternatif` (`id_alternatif`, `NIP`, `periode`, `lihat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `desc_kriteria`
+-- Struktur dari tabel `desc_kriteria`
 --
 
 CREATE TABLE `desc_kriteria` (
@@ -56,22 +55,22 @@ CREATE TABLE `desc_kriteria` (
   `id_kriteria` int(11) NOT NULL,
   `deskripsi` varchar(225) NOT NULL,
   `nilai` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jabatan`
+-- Struktur dari tabel `jabatan`
 --
 
 CREATE TABLE `jabatan` (
   `id` int(30) NOT NULL,
   `nama_jabatan` varchar(40) NOT NULL,
   `job_desc` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `jabatan`
+-- Dumping data untuk tabel `jabatan`
 --
 
 INSERT INTO `jabatan` (`id`, `nama_jabatan`, `job_desc`) VALUES
@@ -80,7 +79,7 @@ INSERT INTO `jabatan` (`id`, `nama_jabatan`, `job_desc`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `karyawan`
+-- Struktur dari tabel `karyawan`
 --
 
 CREATE TABLE `karyawan` (
@@ -89,10 +88,10 @@ CREATE TABLE `karyawan` (
   `JK` varchar(50) DEFAULT NULL,
   `Jabatan` varchar(50) DEFAULT NULL,
   `status` varchar(25) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `karyawan`
+-- Dumping data untuk tabel `karyawan`
 --
 
 INSERT INTO `karyawan` (`NIP`, `nama_karyawan`, `JK`, `Jabatan`, `status`) VALUES
@@ -103,17 +102,17 @@ INSERT INTO `karyawan` (`NIP`, `nama_karyawan`, `JK`, `Jabatan`, `status`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kriteria`
+-- Struktur dari tabel `kriteria`
 --
 
 CREATE TABLE `kriteria` (
   `id_kriteria` int(11) NOT NULL,
   `kriteria` varchar(125) NOT NULL,
   `seo` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `kriteria`
+-- Dumping data untuk tabel `kriteria`
 --
 
 INSERT INTO `kriteria` (`id_kriteria`, `kriteria`, `seo`) VALUES
@@ -127,7 +126,7 @@ INSERT INTO `kriteria` (`id_kriteria`, `kriteria`, `seo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nilai_alternatif`
+-- Struktur dari tabel `nilai_alternatif`
 --
 
 CREATE TABLE `nilai_alternatif` (
@@ -136,10 +135,10 @@ CREATE TABLE `nilai_alternatif` (
   `id_kriteria` int(11) NOT NULL,
   `nilai` int(11) NOT NULL,
   `periode` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `nilai_alternatif`
+-- Dumping data untuk tabel `nilai_alternatif`
 --
 
 INSERT INTO `nilai_alternatif` (`id_nilai_alternatif`, `id_alternatif`, `id_kriteria`, `nilai`, `periode`) VALUES
@@ -171,17 +170,17 @@ INSERT INTO `nilai_alternatif` (`id_nilai_alternatif`, `id_alternatif`, `id_krit
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nilai_kriteria`
+-- Struktur dari tabel `nilai_kriteria`
 --
 
 CREATE TABLE `nilai_kriteria` (
   `id_nilai` int(11) NOT NULL,
   `id_kriteria` int(11) NOT NULL,
   `nilai` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `nilai_kriteria`
+-- Dumping data untuk tabel `nilai_kriteria`
 --
 
 INSERT INTO `nilai_kriteria` (`id_nilai`, `id_kriteria`, `nilai`) VALUES
@@ -195,7 +194,7 @@ INSERT INTO `nilai_kriteria` (`id_nilai`, `id_kriteria`, `nilai`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pemberian_skor`
+-- Struktur dari tabel `pemberian_skor`
 --
 
 CREATE TABLE `pemberian_skor` (
@@ -204,12 +203,12 @@ CREATE TABLE `pemberian_skor` (
   `deskripsi` varchar(225) NOT NULL,
   `data_awal` varchar(225) NOT NULL,
   `konversi` varchar(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `periode`
+-- Struktur dari tabel `periode`
 --
 
 CREATE TABLE `periode` (
@@ -218,10 +217,10 @@ CREATE TABLE `periode` (
   `label` varchar(30) NOT NULL,
   `tahun` int(5) NOT NULL,
   `bulan` varchar(12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `periode`
+-- Dumping data untuk tabel `periode`
 --
 
 INSERT INTO `periode` (`id_periode`, `periode`, `label`, `tahun`, `bulan`) VALUES
@@ -231,7 +230,7 @@ INSERT INTO `periode` (`id_periode`, `periode`, `label`, `tahun`, `bulan`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `temp`
+-- Struktur dari tabel `temp`
 --
 
 CREATE TABLE `temp` (
@@ -243,14 +242,14 @@ CREATE TABLE `temp` (
   `Pengabdian_Masyarakat` int(5) DEFAULT NULL,
   `Penunjang` int(5) DEFAULT NULL,
   `creator` varchar(20) NOT NULL,
-  `waktu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `waktu` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `periode` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -259,10 +258,10 @@ CREATE TABLE `user` (
   `username` varchar(125) NOT NULL,
   `password` varchar(125) NOT NULL,
   `level` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama`, `username`, `password`, `level`) VALUES
@@ -274,131 +273,131 @@ INSERT INTO `user` (`id_user`, `nama`, `username`, `password`, `level`) VALUES
 --
 
 --
--- Indexes for table `alternatif`
+-- Indeks untuk tabel `alternatif`
 --
 ALTER TABLE `alternatif`
   ADD PRIMARY KEY (`id_alternatif`);
 
 --
--- Indexes for table `desc_kriteria`
+-- Indeks untuk tabel `desc_kriteria`
 --
 ALTER TABLE `desc_kriteria`
   ADD PRIMARY KEY (`id_desc`);
 
 --
--- Indexes for table `jabatan`
+-- Indeks untuk tabel `jabatan`
 --
 ALTER TABLE `jabatan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `karyawan`
+-- Indeks untuk tabel `karyawan`
 --
 ALTER TABLE `karyawan`
   ADD PRIMARY KEY (`NIP`);
 
 --
--- Indexes for table `kriteria`
+-- Indeks untuk tabel `kriteria`
 --
 ALTER TABLE `kriteria`
   ADD PRIMARY KEY (`id_kriteria`);
 
 --
--- Indexes for table `nilai_alternatif`
+-- Indeks untuk tabel `nilai_alternatif`
 --
 ALTER TABLE `nilai_alternatif`
   ADD PRIMARY KEY (`id_nilai_alternatif`);
 
 --
--- Indexes for table `nilai_kriteria`
+-- Indeks untuk tabel `nilai_kriteria`
 --
 ALTER TABLE `nilai_kriteria`
   ADD PRIMARY KEY (`id_nilai`);
 
 --
--- Indexes for table `pemberian_skor`
+-- Indeks untuk tabel `pemberian_skor`
 --
 ALTER TABLE `pemberian_skor`
   ADD PRIMARY KEY (`id_pemberian`);
 
 --
--- Indexes for table `periode`
+-- Indeks untuk tabel `periode`
 --
 ALTER TABLE `periode`
   ADD PRIMARY KEY (`id_periode`);
 
 --
--- Indexes for table `temp`
+-- Indeks untuk tabel `temp`
 --
 ALTER TABLE `temp`
   ADD PRIMARY KEY (`id_temp`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `alternatif`
+-- AUTO_INCREMENT untuk tabel `alternatif`
 --
 ALTER TABLE `alternatif`
   MODIFY `id_alternatif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `desc_kriteria`
+-- AUTO_INCREMENT untuk tabel `desc_kriteria`
 --
 ALTER TABLE `desc_kriteria`
   MODIFY `id_desc` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `jabatan`
+-- AUTO_INCREMENT untuk tabel `jabatan`
 --
 ALTER TABLE `jabatan`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `kriteria`
+-- AUTO_INCREMENT untuk tabel `kriteria`
 --
 ALTER TABLE `kriteria`
   MODIFY `id_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `nilai_alternatif`
+-- AUTO_INCREMENT untuk tabel `nilai_alternatif`
 --
 ALTER TABLE `nilai_alternatif`
   MODIFY `id_nilai_alternatif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `nilai_kriteria`
+-- AUTO_INCREMENT untuk tabel `nilai_kriteria`
 --
 ALTER TABLE `nilai_kriteria`
   MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `pemberian_skor`
+-- AUTO_INCREMENT untuk tabel `pemberian_skor`
 --
 ALTER TABLE `pemberian_skor`
   MODIFY `id_pemberian` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `periode`
+-- AUTO_INCREMENT untuk tabel `periode`
 --
 ALTER TABLE `periode`
   MODIFY `id_periode` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `temp`
+-- AUTO_INCREMENT untuk tabel `temp`
 --
 ALTER TABLE `temp`
   MODIFY `id_temp` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
